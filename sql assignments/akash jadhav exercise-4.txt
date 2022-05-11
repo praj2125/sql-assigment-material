@@ -1,0 +1,58 @@
+
+SQL Exercise 4 
+1. Display the minimum Status in the Supplier table. 
+ans: select min(status) from supplier;
+
+--------------------------------------------------------------------
+2. Display the maximum Weight in the Parts table. 
+ans: select max(status) from supplier;
+
+--------------------------------------------------------------------
+3. Display the average Weight of the Parts.
+ans: select avg(weight) from parts;
+
+--------------------------------------------------------------------
+4. Display the total Quantity sold for part ‘P1’.
+ans: select qty from spj where `p#` = 'p1';
+
+--------------------------------------------------------------------
+5. Display the total Quantity sold for each part.
+ans: select `p#`,qty from spj;
+
+--------------------------------------------------------------------
+6. Display the average Quantity sold for each part.
+ans: select `p#`,avg(qty) from spj group by `p#`;
+
+--------------------------------------------------------------------
+7. Display the maximum Quantity sold for each part, provided the maximum Quantity 
+is greater than 800. 
+ans: select `p#`,max(ifnull(qty,800)) from spj;
+
+--------------------------------------------------------------------
+8. Display the Status and the count of Suppliers with that Status.
+ans: select status,count(sname) supplier from supplier group by status;
+--------------------------------------------------------------------
+9. Display the count of Projects going on in different cities. 
+ans: select count(jname) projects,city from projects group by city;
+
+---------------------------------------------------------------------
+10. What is the difference between COUNT(Status) and COUNT(*)?
+ans: COUNT(Status) : status not having null only that rows will be count.
+     COUNT(*): all rows will be count including null rows. 
+
+---------------------------------------------------------------------
+11. Display the Status and the Count of Suppliers with that Status in the following format 
+as shown below:- 
+ 
+Status  Count 
+Ten       1 
+Twenty    2 
+Thirty    3
+
+ans:select status,
+case
+when status = 'Ten' then '1'
+when status = 'Twenty' then '2'
+when status = 'Thirty' then '3'
+end count
+from emp;

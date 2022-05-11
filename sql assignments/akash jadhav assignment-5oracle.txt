@@ -1,0 +1,59 @@
+
+Assignment –5
+Relational and Logical Operators.
+1) Write a query that will give you all orders for more than Rs. 1,000.
+ANS-->
+	SELECT * FROM ORDERS WHERE AMT>1000;
+
+2) Write a query that will give you the names and cities of all salespeople in LoNDON 
+with a commission above .10.
+ANS-->
+	select Sname,City from SALESPEOPLE where City='London' and Comm>.10;
+
+3) Write a query on the Customers table whose output will exclude all customers 
+with a rating <= 100, unless they are located in Rome.
+ans-->
+	select Cname,City from CUSTOMERS where City='Rome' and Rating<=100;
+
+4) What will be the output from the following query?
+ Select * from Orders 
+ where (amt < 1000 OR 
+ NOT (odate = ‘03-OCT-1990’ 
+ AND cnum > 2003));
+ans-->
+	 ONUM        AMT ODATE           CNUM       SNUM
+---------- ---------- --------- ---------- ----------
+      3003     767.19 03-OCT-90       2001       1001
+      3005    5160.45 03-OCT-90       2003       1002
+      3009    1713.23 04-OCT-90       2002       1003
+      3007      75.75 04-OCT-90       2004       1002
+      3008       4723 05-OCT-90       2006       1001
+      3010    1309.95 06-OCT-90       2004       1002
+      3011    9891.88 06-OCT-90       2006       1001
+
+5) What will be the output of the following query?
+ Select * from Orders 
+ where NOT ((odate = ‘03-OCT-1990’ OR snum
+ >1006) AND amt >= 1500);
+ans-->
+	  ONUM        AMT ODATE           CNUM       SNUM
+---------- ---------- --------- ---------- ----------
+      3003     767.19 03-OCT-90       2001       1001
+      3006    1098.16 03-OCT-90       2008       1007
+      3009    1713.23 04-OCT-90       2002       1003
+      3007      75.75 04-OCT-90       2004       1002
+      3008       4723 05-OCT-90       2006       1001
+      3010    1309.95 06-OCT-90       2004       1002
+      3011    9891.88 06-OCT-90       2006       1001
+
+6) What is a simpler way to write this query?
+ Select snum, sname, city, comm From Salespeople
+ where (comm > .12 OR comm <.14);
+ans-->
+	select Snum,
+       	Sname,
+       	City,
+       	Comm
+	from SALESPEOPE
+	where (Comm > .12
+     	 or Comm <.14);

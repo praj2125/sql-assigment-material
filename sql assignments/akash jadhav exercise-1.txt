@@ -1,0 +1,199 @@
+1. Create the table SEMP with the following structure:- 
+ 
+ EMPNO CHAR(4) 
+ EMPNAME CHAR(20) 
+ BASIC FLOAT 
+ DEPTNO CHAR(2) 
+ DEPTHEAD CHAR(4)
+ans---->
+
+create table tablename   //syntax
+(EMPNO CHAR(4) 
+ EMPNAME CHAR(20) 
+ BASIC FLOAT 
+ DEPTNO CHAR(2) 
+ DEPTHEAD CHAR(4));
+
+create table SEMP  
+(EMPNO CHAR(4) 
+ EMPNAME CHAR(20) 
+ BASIC FLOAT 
+ DEPTNO CHAR(2) 
+ DEPTHEAD CHAR(4));
+
+2. Create the table SDEPT with the following structure:- 
+ 
+ DEPTNO CHAR(2) 
+ DEPTNAME CHAR(15) 
+
+ANS--->
+create table tablename   //syntax
+( DEPTNO CHAR(2) 
+ DEPTNAME CHAR(15));
+
+create table SDEPT
+( DEPTNO CHAR(2) 
+ DEPTNAME CHAR(15));
+
+3. Insert into the SDEPT table the following values:- 
+ 
+10, Development 
+20, Training
+
+ANS--->
+
+insert into tablename 
+values('10','development'),
+('20','training');
+
+4. Insert into the SEMP table the following values:- 
+ 
+0001, SUNIL, 6000, 10 
+0002, HIREN, 8000, 20 
+0003, ALI, 4000, 10, 0001 
+0004, GEORGE, 6000, 0002
+
+Create S, P, J, SPJ tables as specified below and insert a few rows in each table:- 
+ 
+ SUPPLIER 
+(S#, Sname, Status, City) 
+- S 
+ PARTS 
+(P#, Pname, Color, Weight, City) 
+- P 
+ PROJECTS 
+(J#, Jname, City) 
+- J 
+ SUPPLIER-PARTS-PROJECT 
+(S#, P#, J#, Qty) 
+ 
+- SPJ 
+Sample data for S# column:- ‘S1’, ‘S2’, ‘S3’, etc. 
+Sample data for P# column:- ‘P1’, ‘P2’, ‘P3’, etc. 
+Sample data for J# column:- ‘J1’, ‘J2’, ‘J3’, etc. 
+Sample data for Status column:- 10, 20, 30, etc. 
+
+
+ans--->
+//values insert in semp table
+insert into SEMP
+values('0001', 'SUNIL', 6000, '10',null),
+('0002', 'HIREN', 8000, '20',null), 
+('0003', 'ALI', 4000, '10', '0001'), 
+('0004', 'GEORGE', '6000',null, '0002');
+
+//create supplier table
+
+create table SUPPLIER
+(`S#` char(4),
+sname char(20),
+status smallint(8),
+city varchar(10));
+
+//insert values into supplier table
+
+insert into SUPPLIER
+ values('S1','ram','10','london'),
+ ('S2','lakhan','20','paris'),
+ ('S3','seeta','30','athens');
+
+//create parts table
+
+CREATE TABLE parts
+(`p#` char(4),
+pname char(10),
+color text(10),
+weight float(6),
+city varchar(20));
+
+//insert values into parts table
+
+insert into parts
+values('p1','keyboard', 'black', '10', 'london'),
+('p2','mouse', 'silver', '5.5', 'paris'),
+('p3','harddisk', 'golden', '5', 'athens');
+
+//create project table
+
+create table PROJECTS
+(`J#` char(4),
+jname char(6),
+city varchar(20));
+
+//insert values into projects table
+
+insert into projects
+values('j1', 'project-1','london'),
+('j2', 'project-2','paris'),
+('j3', 'project-3','athens');
+
+
+//create SPJ table
+create table SPJ
+(`S#` char(4),
+`P#` char(4),
+`J#` char(4),
+qty int(10));
+
+//insert values into spj table
+
+insert into spj
+values('s1', 'p1', 'j1', '10'),
+('s2', 'p2', 'j2', '20'),
+('s2', 'p3', 'j3', '30');
+
+5. Display all the data from the S table.
+ans-->
+
+	select * from supplier;
+
+6. Display only the S# and SNAME fields from the S table.
+ans--->
+ 	select `s#`, sname from supplier;
+ 
+7. Display the PNAME and COLOR from the P table for the CITY=”London”. 
+ans--->
+	select pname,color from parts where city='london';
+ 
+8. Display all the Suppliers from London.
+ans-->
+
+    select * from supplier where city='london'; 
+ 
+9. Display all the Suppliers from Paris or Athens.
+ans--->
+ 
+    select * from supplier where city='paries' or city='athens';
+ 
+10. Display all the Projects in Athens.
+ans-->
+	select * from projects where city='athens'; 
+ 
+11. Display all the Partnames with the weight between 5 and 14 (inclusive of both).
+ans---> 
+
+	select pname from parts where weight>5 AND weight<14;
+ 
+12. Display all the Suppliers with a Status greater than or equal to 20.
+ans--->
+	select * from supplier where Status>=20;
+	 
+13. Display all the Suppliers except the Suppliers from London.
+ans--->
+
+	select * from supplier where city!='london'; 
+ 
+14. Display only the Cities from where the Suppliers come from.
+ans--->
+	select city * from supplier; 
+ 
+15. Assuming that the Part Weight is in GRAMS, display the same in 
+MILLIGRAMS and KILOGRAMS.
+
+ans-->	select  (weight * 1000) as 'mg' , (weight/1000) as 'kg' from parts;
+
+
+
+  
+
+

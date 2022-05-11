@@ -1,0 +1,58 @@
+create table salsepeople
+(
+Snum number(4),
+Sname varchar2(10),
+City varchar2(10),
+comm number(3,2)
+);
+
+create table custmers
+(
+Cnum number(4),
+Cname varchar2(10),
+City varchar2(10),
+Rating number(4),
+Snum number (4)
+);
+
+
+create table orders
+(
+Onum number (4),
+Amt number(7,2),
+Odate date,
+cnum number(4),
+Snum number(4)
+);
+insert all
+into salsepeople values(1001,'Peel','London',.12)
+into salsepeople values(1002,'serres','San jones',.13)
+into salsepeople values(1004,'Motika','London',.11)
+into salsepeople values(1007,'Rifkin','Barcelona',.15)
+into salsepeople values(1003,'Axelrod','New York',.10)
+select 1 from dual;
+
+insert all
+into custmers values(2001,'Hoffman','London',100,1001)
+into custmers values(2002,'Giovanni','Rome',200,1003)
+into custmers values(2003,'liu','San Jose',200,1002)
+into custmers values(2004,'Grass','Berlin',300,1002)
+into custmers values(2006,'Clemens','London',100,1001)
+into custmers values(2008,'Cisneros','San Jones',300,1007)
+into custmers values(2007,'Pereira','Rome',100,1004)
+select 1 from dual;
+ 
+insert all 
+into orders values(3001,18.69,'03-oct-1990',2008,1007)
+into orders values(3003,769.19,'03-oct-1990',2001,1001)
+into orders values(3002,1900.10,'03-oct-1990',2007,1004)
+into orders values(3005,5160.45,'03-oct-1990',2003,1002)
+into orders values(3006,1098.16,'03-oct-1990',2008,1007)
+into orders values(3009,1713.23,'04-oct-1990',2002,1003)
+into orders values(3007,75.75,'04-oct-1990',2004,1002)
+into orders values(3008,4723.00,'05-oct-1990',2006,1001)
+into orders values(3010,1309.95,'06-oct-1990',2004,1002)
+into orders values(3011,9891.88,'06-oct-1990',2006,1001)
+select 1 from dual;
+
+

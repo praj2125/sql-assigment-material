@@ -1,0 +1,21 @@
+Sameer Dehadrai Page: 1
+Assignment –22
+Global Aspects of SQL.
+1) Create a database space (tablespace) called “Myspace” and make it the default 
+tablespace for Parag’s tables.
+-->
+	step 1= CREATE tablespace Myspace datafile 'd:mytablespace' autoextend OFF;
+
+	step 2= CREATE USER Parag idntied BY pass DEFAULT tablespace Myspace;
+
+2) You have been granted SELECT on Ajita’s Orders table. Enter a command so that 
+you will be able to refer to this table as “Orders” without using the name “Ajita” 
+as a prefix.
+-->
+	CREATE DATABASE link eu_db CONNECT TO Ajita Identified BY rksuthar USING 'orcl';
+
+3) If there is a power failure, what will happen to all changes contained in the current 
+transaction?
+-->
+	If transaction is not commited or completed it will be rollbacked to previous
+savepoint.

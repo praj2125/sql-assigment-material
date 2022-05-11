@@ -1,0 +1,9 @@
+Sameer Dehadrai Page: 1
+Assignment –23
+Keeping your Database in order.
+1) Query the catalog to produce, for each table with more than 4 columns, the table’s 
+name, the owner, and the names and datatypes of the columns.
+2) Query the catalog to find out how many synonyms exist for each table in the 
+database. Remember that the same synonym owned by 2 different users are in 
+effect 2 different synonyms.
+3) Find out how many tables have indexes on more than 50% of their columns.
